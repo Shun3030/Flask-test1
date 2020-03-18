@@ -12,6 +12,23 @@
 <body>
     <h1>Hello from index.html</h1>
     <h2 id='jstest'>jstest</h2>
+
+    <h1>{{ text }}</h1>
+
+    <ul>
+        {% for itm in lis %}
+            <li>{{ itm }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>{{ "name:%s age:%s" % (dic["name"], dic["age"]) }}</p>
+
+    {% if x % 2 == 0 %}
+        <p>Even</p>
+    {% else %}
+        <p>Odd</p>
+    {% endif %}
+
 </body>
 
 </html>

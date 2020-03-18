@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from random import randint
 
 
 app = Flask(__name__)
@@ -6,7 +7,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    text = 'Hello from main.py'
+    lis = ["first", "second", "third"]
+    dic = {"name": "Shun", "age": 27}
+    x = randint(0, 10)
+
+    return render_template('index.html', text=text, lis=lis, dic=dic, x=x)
 
 
 # 本番実行用の関数
