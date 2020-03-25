@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 from random import randint
 
 
@@ -13,6 +13,23 @@ def index():
     x = randint(0, 10)
 
     return render_template('index.html', text=text, lis=lis, dic=dic, x=x)
+
+
+#500エラー発生関数
+@app.route('/err500')
+def err500():
+    abort(500)
+
+
+#エラー処理
+@app.errorhandler(404)
+def handle_404(exception):
+    return {'message': 'Error: Resource not found.'}, 404
+
+
+@app.errorhandler(500)
+def handle_500(exception):
+    return {'message': 'Please contact the administrator.'}, 500
 
 
 # 本番実行用の関数
