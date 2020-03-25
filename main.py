@@ -32,7 +32,6 @@ def handle_500(exception):
     return {'message': 'Please contact the administrator.'}, 500
 
 
-
 # 実行用の関数
 def main():
     app.debug = True
