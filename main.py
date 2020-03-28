@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 from random import randint
 
 
@@ -13,6 +13,13 @@ def index():
     x = randint(0, 10)
 
     return render_template('index.html', text=text, lis=lis, dic=dic, x=x)
+
+
+# HTTPリクエストの処理
+@app.route('/api/hello')
+def hello():
+    if request.method == 'GET':
+        return '<h1>Hello, World!</h1>'
 
 
 #500エラー発生関数
